@@ -1,5 +1,12 @@
+body {
+
+}
+
 .app {
-    background: red;
+    background-image: url("./photo_2016-12-08_12-18-24.jpg");
+    height: 300px;
+    width: 300px;
+    background-size: cover;
     display: flex;
 }
 

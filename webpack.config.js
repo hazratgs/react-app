@@ -12,7 +12,15 @@ const common = {
     filename: 'js/bundle.js'
   },
   module: {
-    rules: []
+    rules: [
+      {
+        test: /\.(jpg|png|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[ext]'
+        }
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({

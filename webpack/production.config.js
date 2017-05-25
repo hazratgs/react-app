@@ -7,7 +7,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css/,
+        test: /\.css$/,
         use: ExtractTextPlugin.extract({
           publicPath: '../',
           fallback: 'style-loader',
@@ -38,7 +38,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('./css/style.css'),
+    new ExtractTextPlugin('./css/[name].css'),
     new UglifyJSPlugin({
       sourceMap: true
     })
