@@ -9,14 +9,14 @@ const common = {
   entry: path.join(__dirname, 'src') + '/index.js',
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: 'js/bundle.js'
   },
   module: {
     rules: []
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack-app'
+      template: 'index.html'
     })
   ]
 };

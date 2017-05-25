@@ -1,5 +1,7 @@
+const webpack = require('webpack');
 const cssnext = require('postcss-cssnext');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   module: {
@@ -36,6 +38,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('./css/style.css')
+    new ExtractTextPlugin('./css/style.css'),
+    new UglifyJSPlugin({
+      sourceMap: true
+    })
   ]
 };
