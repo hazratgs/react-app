@@ -2,3 +2,8 @@
     background: red;
     display: flex;
 }
+
+.menu {
+    display: flex;
+    background: bisque;
+}
