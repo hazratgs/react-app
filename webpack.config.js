@@ -2,6 +2,9 @@ const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const development = require('./webpack/development.config');
+const production = require('./webpack/production.config');
+
 const common = {
   entry: path.join(__dirname, 'src') + '/index.js',
   output: {
@@ -9,9 +12,7 @@ const common = {
     filename: 'bundle.js'
   },
   module: {
-    rules: [
-
-    ]
+    rules: []
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -20,19 +21,12 @@ const common = {
   ]
 };
 
-const developmentConfig = {
-  devServer: {
-    stats: 'errors-only',
-    port: 9000,
-    compress: true
-  }
-};
 
 module.exports = env => {
   if (env === 'production'){
-    return common
+    return merge(common, production)
   }
   if (env === 'development'){
-    return merge(common, developmentConfig)
+    return merge(common, development)
   }
 }
