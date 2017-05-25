@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --watch",
+    "start": "webpack-dev-server --env development",
+    "build": "webpack --env production",
     "serv": "static build"
   },
   "author": "",
@@ -12,6 +13,8 @@
   "devDependencies": {
     "html-webpack-plugin": "^2.28.0",
     "node-static": "^0.7.9",
-    "webpack": "^2.6.0"
+    "webpack": "^2.6.0",
+    "webpack-dev-server": "^2.4.5",
+    "webpack-merge": "^4.1.0"
   }
 }
