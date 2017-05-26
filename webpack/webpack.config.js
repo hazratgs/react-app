@@ -2,22 +2,16 @@ const { resolve } = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const development = require('./webpack/development.config');
-const production = require('./webpack/production.config');
+const development = require('./development.config');
+const production = require('./production.config');
 
 const common = {
 
   entry: [
-
-    // активация HRM для React
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
-
-    resolve(__dirname, 'src') + '/index.js'
+    resolve(__dirname, '../src') + '/index.js'
   ],
   output: {
-    path: resolve(__dirname, 'build'),
+    path: resolve(__dirname, '../build'),
     filename: 'js/bundle.js',
     publicPath: '/'
   },
@@ -39,7 +33,7 @@ const common = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: resolve(__dirname, '../src') + '/index.html'
     })
   ]
 };

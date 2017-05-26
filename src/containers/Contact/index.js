@@ -10,7 +10,7 @@ class App extends PureComponent {
   render() {
     return (
       <div className={s.app}>
-        <p>Hello world</p>
+        <p>Hello world app</p>
       </div>
     )
   }
