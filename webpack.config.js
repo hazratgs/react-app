@@ -14,6 +14,11 @@ const common = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
         test: /\.(jpg|png|svg)$/,
         loader: 'file-loader',
         options: {
