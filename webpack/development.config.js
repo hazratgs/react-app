@@ -1,3 +1,5 @@
+const { resolve } = require('path');
+const webpack = require('webpack');
 const cssnext = require('postcss-cssnext');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -34,9 +36,14 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new ExtractTextPlugin('./css/[name].css')
   ],
   devServer: {
+    hot: true,
+    contentBase: resolve(__dirname, '../build'),
+    publicPath: '/',
     stats: 'errors-only',
     port: 3000,
     compress: true,

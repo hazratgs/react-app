@@ -6,24 +6,24 @@ import { store } from './store/configureStore'
 
 import App from './containers/App';
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <div>
-        <App/>
-      </div>
-    </Router>
-  </Provider>,
-  document.getElementById('root')
-);
+const render = (Component) => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <Router>
+        <div>
+          <Component/>
+        </div>
+      </Router>
+    </Provider>,
+    document.getElementById('root')
+  );
+};
+
+render(App);
 
 // Hot Module Replacement
-// if (module.hot) {
-//   module.hot.accept('./containers/App', () => {
-//     const NextApp = require('./containers/App').default;
-//     ReactDOM.render(
-//     <NextApp />,
-//       document.getElementById('root')
-//     )
-//   })
-// }
+if (module.hot) {
+  module.hot.accept('./containers/App', () => {
+    render(App);
+  })
+}

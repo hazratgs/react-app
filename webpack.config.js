@@ -1,4 +1,4 @@
-const path = require('path');
+const { resolve } = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -6,17 +6,27 @@ const development = require('./webpack/development.config');
 const production = require('./webpack/production.config');
 
 const common = {
-  entry: path.join(__dirname, 'src') + '/index.js',
+
+  entry: [
+
+    // активация HRM для React
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
+
+    resolve(__dirname, 'src') + '/index.js'
+  ],
   output: {
-    path: path.join(__dirname, 'build'),
-    filename: 'js/bundle.js'
+    path: resolve(__dirname, 'build'),
+    filename: 'js/bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: ['babel-loader']
       },
       {
         test: /\.(jpg|png|svg)$/,
