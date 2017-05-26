@@ -38,7 +38,7 @@ module.exports = {
   ],
   devServer: {
     stats: 'errors-only',
-    port: 9000,
+    port: 3000,
     compress: true
   }
 };
