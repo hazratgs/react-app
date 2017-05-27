@@ -5,7 +5,7 @@
       { "modules": false }
     ],
     "react",
-    "stage-2"
+    "stage-0"
   ],
   "plugins": [
     "react-hot-loader/babel"

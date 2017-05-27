@@ -28,7 +28,7 @@ export default class Header extends PureComponent {
               <div className={s.contact}>
                 <div className={s.item}>
                   <div className={s.headElement}>
-                    <span className={s.phone} onClick={this.callMe}>
+                    <span className={s.phone} onClick={::this.callMe}>
                       <PhoneIcon/>
                       Перезвоните мне
                     </span>
