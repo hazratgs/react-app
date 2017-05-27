@@ -1,6 +1,5 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
-const cssnext = require('postcss-cssnext');
 
 module.exports = {
   entry: [
@@ -26,9 +25,9 @@ module.exports = {
             options: {
               plugins: () => [
                 require('postcss-import'),
-                cssnext({
-                  browsers: '> 5%'
-                })
+                require('postcss-nested'),
+                require('postcss-custom-properties'),
+
               ]
             }
           }

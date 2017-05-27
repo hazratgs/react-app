@@ -1,0 +1,20 @@
+:root {
+    --width: 1280px;
+
+    /* colors */
+    --border-color: #eee;
+    --silver: #666;
+
+    /* fonts */
+    --roboto: 'Roboto', 'Arial';
+
+    --font-smooth: {
+        font-smoothing: antialiased;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    };
+
+    --transition: {
+        transition: all 0.3s ease;
+    };
+}

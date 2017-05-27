@@ -4,20 +4,17 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../actions/App'
 
-import Contact from '../Contact'
-
 import s from './style.css'
+import 'normalize.css'
+
+import Header from '../Header'
 
 class App extends PureComponent {
   render() {
     return (
       <div className={s.app}>
-        <h1>Hello, world!</h1>
-        <NavLink to='/' exact>Главная</NavLink>
-        <br/>
-        <NavLink to='/contact' exact>Контакты</NavLink>
+        <Header/>
 
-        <Route path='/contact' component={Contact}/>
       </div>
     )
   }
