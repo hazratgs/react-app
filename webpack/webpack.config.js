@@ -22,11 +22,15 @@ const common = {
         use: ['babel-loader']
       },
       {
-        test: /\.(jpg|png|svg)$/,
+        test: /\.(jpg|png)$/,
         loader: 'file-loader',
         options: {
           name: 'img/[name].[ext]'
         }
+      },
+      {
+        test: /\.svg$/,
+        loaders: ['babel-loader', 'svg-react-loader']
       }
     ]
   },

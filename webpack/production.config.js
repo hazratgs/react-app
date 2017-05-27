@@ -1,6 +1,6 @@
 const webpack = require('webpack');
-const cssnext = require('postcss-cssnext');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   module: {
@@ -25,8 +25,10 @@ module.exports = {
               options: {
                 plugins: () => [
                   require('postcss-import'),
-                  cssnext({
-                    browsers: '> 5%'
+                  require('postcss-css-variables'),
+                  require('postcss-nested'),
+                  autoprefixer({
+                    browsers: '>= 5%'
                   })
                 ]
               }

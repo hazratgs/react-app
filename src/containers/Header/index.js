@@ -2,10 +2,11 @@ import React, { PureComponent } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import s from './style.css'
-import './logo.svg'
-import './phone.svg'
-import './mail.svg'
-import './arrow.svg'
+
+import Logo from './logo.svg'
+import PhoneIcon from './phone.svg'
+import MailIcon from './mail.svg'
+import ArrowIcon from './arrow.svg'
 
 export default class Header extends PureComponent {
 
@@ -21,14 +22,14 @@ export default class Header extends PureComponent {
             <div className={s.center}>
               <div className={s.logo}>
                 <NavLink to='/'>
-                  <img src='/img/logo.svg' />
+                  <Logo/>
                 </NavLink>
               </div>
               <div className={s.contact}>
                 <div className={s.item}>
                   <div className={s.headElement}>
                     <span className={s.phone} onClick={this.callMe}>
-                      <img src='/img/phone.svg' />
+                      <PhoneIcon/>
                       Перезвоните мне
                     </span>
                   </div>
@@ -43,7 +44,7 @@ export default class Header extends PureComponent {
                 <div className={s.item}>
                   <div className={s.headElement}>
                     <span onClick={this.callMe}>
-                      <img src='/img/mail.svg' />
+                      <MailIcon/>
                       hello@monte05.ru
                     </span>
                   </div>
@@ -64,7 +65,7 @@ export default class Header extends PureComponent {
               <div className={s.nav}>
                 <div className={s.item}>
                   <strong>Меню доставки</strong>
-                  <img src='/img/arrow.svg' />
+                  <ArrowIcon/>
                 </div>
                 <div className={s.item}>
                   <NavLink className={s.link} to='/'>Ресторан</NavLink>

@@ -1,5 +1,6 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: [
@@ -25,9 +26,11 @@ module.exports = {
             options: {
               plugins: () => [
                 require('postcss-import'),
+                require('postcss-css-variables'),
                 require('postcss-nested'),
-                require('postcss-custom-properties'),
-
+                autoprefixer({
+                  browsers: '>= 5%'
+                })
               ]
             }
           }
