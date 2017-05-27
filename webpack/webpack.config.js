@@ -6,7 +6,6 @@ const development = require('./development.config');
 const production = require('./production.config');
 
 const common = {
-
   entry: [
     resolve(__dirname, '../src') + '/index.js'
   ],
