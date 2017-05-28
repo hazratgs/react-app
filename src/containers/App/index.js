@@ -8,12 +8,14 @@ import s from './style.css'
 import 'normalize.css'
 
 import Header from '../Header'
+import Slider from '../../components/Slider'
 
 class App extends PureComponent {
   render() {
     return (
       <div className={s.app}>
         <Header/>
+        <Slider/>
 
       </div>
     )

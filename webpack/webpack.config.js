@@ -12,7 +12,7 @@ const common = {
   ],
   output: {
     path: resolve(__dirname, '../build'),
-    filename: 'js/bundle.js',
+    filename: 'js/[name].js',
     publicPath: '/'
   },
   module: {
@@ -37,9 +37,6 @@ const common = {
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common'
-    }),
     new HtmlWebpackPlugin({
       template: resolve(__dirname, '../src') + '/index.html'
     })

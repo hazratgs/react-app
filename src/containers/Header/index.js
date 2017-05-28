@@ -8,6 +8,10 @@ import PhoneIcon from './phone.svg'
 import MailIcon from './mail.svg'
 import ArrowIcon from './arrow.svg'
 
+import Slider from '../../components/Slider'
+
+import 'normalize.css'
+
 export default class Header extends PureComponent {
 
   callMe() {
@@ -86,6 +90,7 @@ export default class Header extends PureComponent {
             </div>
           </div>
         </div>
+        <Slider/>
       </div>
     )
   }
