@@ -12,7 +12,7 @@ const common = {
   ],
   output: {
     path: resolve(__dirname, '../build'),
-    filename: 'js/[name].js',
+    filename: 'js/bundle.js',
     publicPath: '/'
   },
   module: {
