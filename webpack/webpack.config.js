@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const development = require('./development.config');
 const production = require('./production.config');
