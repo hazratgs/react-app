@@ -8,6 +8,7 @@ const production = require('./production.config');
 
 const common = {
   entry: [
+    "babel-polyfill",
     resolve(__dirname, '../src') + '/index.js'
   ],
   output: {

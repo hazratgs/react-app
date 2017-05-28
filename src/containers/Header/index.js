@@ -14,7 +14,7 @@ import 'normalize.css'
 
 export default class Header extends PureComponent {
 
-  callMe() {
+  async callMe() {
     alert('Скоро позвоним вам')
   }
 
