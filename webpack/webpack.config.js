@@ -36,6 +36,10 @@ const common = {
     ]
   },
   plugins: [
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common'
+    }),
     new HtmlWebpackPlugin({
       template: resolve(__dirname, '../src') + '/index.html'
     })
