@@ -1,36 +1,12 @@
 import {
-  STYLE_APP,
-  COLOR_HEADER,
-  SHOW_ASIDE,
-  HIDE_ASIDE
+  HELLO_WORLD
 } from '../constants/App'
 
-export function changeStyleApp(color) {
-  return {
-    type: STYLE_APP,
-    payload: color
-  }
-}
-
-export function changeColorHeader(color) {
+export function hello(name) {
   return (dispath) => {
     dispath({
-      type: COLOR_HEADER,
-      payload: color
+      type: HELLO_WORLD,
+      payload: name
     })
-  }
-}
-
-export function showAside() {
-  return {
-    type: SHOW_ASIDE,
-    payload: 'active'
-  }
-}
-
-export function hideAside() {
-  return {
-    type: HIDE_ASIDE,
-    payload: 'hidden'
   }
 }

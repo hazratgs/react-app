@@ -1,29 +1,15 @@
 import {
-  STYLE_APP,
-  COLOR_HEADER,
-  SHOW_ASIDE,
-  HIDE_ASIDE
+  HELLO_WORLD
 } from '../constants/App'
 
 const initialState = {
-  style: 'black',
-  colorHeader: 'white',
-  aside: 'hidden'
+  name: 'name'
 }
 
 export default function headerState(state = initialState, action) {
   switch (action.type){
-    case STYLE_APP:
-      return {...state, style: action.payload}
-
-    case COLOR_HEADER:
-      return {...state, colorHeader: action.payload}
-
-    case SHOW_ASIDE:
-      return {...state, aside: action.payload}
-
-    case HIDE_ASIDE:
-      return {...state, aside: action.payload}
+    case HELLO_WORLD:
+      return {...state, name: action.payload}
 
     default:
       return state

@@ -9,8 +9,8 @@ import s from './style.css'
 class App extends PureComponent {
   render() {
     return (
-      <div className={s.app}>
-        <p>Hello world app</p>
+      <div className={s.contact}>
+        <p>Контакты</p>
       </div>
     )
   }

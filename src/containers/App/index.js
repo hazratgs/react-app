@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { withRouter, NavLink, Route } from 'react-router-dom'
+import { withRouter, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../actions/App'
@@ -8,15 +8,18 @@ import s from './style.css'
 import 'normalize.css'
 
 import Header from '../Header'
-import Slider from '../../components/Slider'
+import Home from '../Home'
+import Contact from '../Contact'
 
 class App extends PureComponent {
   render() {
     return (
       <div className={s.app}>
         <Header/>
-        <Slider/>
-
+        <div className={s.content}>
+          <Route path='/' exact component={Home}/>
+          <Route path='/contact' component={Contact}/>
+        </div>
       </div>
     )
   }
