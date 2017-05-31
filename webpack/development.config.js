@@ -28,6 +28,7 @@ module.exports = {
               plugins: () => [
                 require('postcss-import'),
                 require('postcss-css-variables'),
+                require('postcss-apply'),
                 require('postcss-nested'),
                 autoprefixer({
                   browsers: '>= 5%'
