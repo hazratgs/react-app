@@ -4,8 +4,7 @@ import { NavLink } from 'react-router-dom'
 import s from './style.css'
 
 export default class Header extends PureComponent {
-
-  render() {
+  render () {
     return (
       <div className={s.header}>
         <h2>react-app-constructor</h2>

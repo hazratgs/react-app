@@ -6,8 +6,8 @@ const initialState = {
   name: 'name'
 }
 
-export default function headerState(state = initialState, action) {
-  switch (action.type){
+export default function headerState (state = initialState, action) {
+  switch (action.type) {
     case HELLO_WORLD:
       return {...state, name: action.payload}
 

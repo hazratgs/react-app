@@ -7,7 +7,7 @@ import * as Actions from '../../actions/App'
 import s from './style.css'
 
 class App extends PureComponent {
-  render() {
+  render () {
     return (
       <div className={s.contact}>
         <p>Контакты</p>

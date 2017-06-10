@@ -12,7 +12,7 @@ import Home from '../Home'
 import Contact from '../Contact'
 
 class App extends PureComponent {
-  render() {
+  render () {
     return (
       <div className={s.app}>
         <Header/>
