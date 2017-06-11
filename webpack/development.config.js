@@ -6,7 +6,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
+    'webpack-dev-server/client?http://0.0.0.0:3000',
     'webpack/hot/only-dev-server'
   ],
   module: {
@@ -51,6 +51,8 @@ module.exports = {
     stats: 'errors-only',
     port: 3000,
     compress: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    host: '0.0.0.0',
+    disableHostCheck: true
   }
 };
