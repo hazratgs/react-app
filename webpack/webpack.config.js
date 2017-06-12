@@ -7,14 +7,22 @@ const development = require('./development.config');
 const production = require('./production.config');
 
 const common = {
-  entry: [
-    "babel-polyfill",
-    resolve(__dirname, '../src') + '/index.js'
-  ],
+  entry: {
+    app: [resolve(__dirname, '../src') + '/index.js'],
+    vendor: [
+      'babel-polyfill',
+      'react', 'react-dom',
+      'react-router-dom',
+      'react-redux',
+      'redux-devtools-extension',
+      'redux-thunk'
+    ]
+  },
   output: {
     path: resolve(__dirname, '../build'),
-    filename: 'js/bundle.js',
-    publicPath: '/'
+    filename: 'js/[name].js',
+    publicPath: '/',
+    chunkFilename: '[id].[chunkhash].js'
   },
   module: {
     rules: [
@@ -37,6 +45,9 @@ const common = {
     ]
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor']
+    }),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       template: resolve(__dirname, '../src') + '/index.html'
