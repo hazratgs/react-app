@@ -40,7 +40,20 @@ const common = {
       },
       {
         test: /\.svg$/,
-        loaders: ['babel-loader', 'svg-react-loader']
+        use: [
+          'babel-loader',
+          'svg-react-loader',
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                {removeTitle: true},
+                {convertColors: {shorthex: false}},
+                {convertPathData: false}
+              ]
+            }
+          }
+        ]
       }
     ]
   },

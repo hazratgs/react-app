@@ -1,4 +1,4 @@
-@import "../../styles/variables.css";
+@import "../../public/css/variables.css";
 
 .header {
   & .menu {
