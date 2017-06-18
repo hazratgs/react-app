@@ -14,7 +14,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.pcss$/,
         use: [
           'style-loader',
           {
@@ -36,6 +36,19 @@ module.exports = {
                   browsers: '>= 5%'
                 })
               ]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: false,
+              importLoaders: 1
             }
           }
         ]

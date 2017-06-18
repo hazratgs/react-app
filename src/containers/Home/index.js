@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import s from './style.css'
+import s from './style.pcss'
 
 export default class Home extends PureComponent {
   render () {

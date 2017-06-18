@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import s from './style.css'
+import s from './style.pcss'
 import Icon from '../../public/svg/icon.svg'
 
 export default class Header extends PureComponent {

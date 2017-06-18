@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../actions/App'
 
-import s from './style.css'
+import s from './style.pcss'
 
 class App extends PureComponent {
   render () {
