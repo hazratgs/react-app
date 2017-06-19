@@ -63,7 +63,7 @@ const common = {
     }),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, '../src') + '/index.html'
+      template: resolve(__dirname, '../src/public') + '/index.html'
     })
   ]
 };
