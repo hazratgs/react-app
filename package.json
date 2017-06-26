@@ -28,7 +28,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.0.1",
     "eslint-plugin-standard": "^3.0.1",
-    "extract-text-webpack-plugin": "^2.1.0",
+    "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.1",
     "html-webpack-plugin": "^2.28.0",
     "node-static": "^0.7.9",
@@ -47,7 +47,7 @@
     "svgo-loader": "^1.2.1",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22",
     "uglifyjs-webpack-plugin": "^0.4.3",
-    "webpack": "^2.6.0",
+    "webpack": "^3.0.0",
     "webpack-dev-server": "^2.4.5",
     "webpack-merge": "^4.1.0"
   },
