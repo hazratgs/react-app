@@ -32,6 +32,7 @@ module.exports = {
                 require('postcss-css-variables'),
                 require('postcss-apply'),
                 require('postcss-nested'),
+                require('postcss-csso'),
                 autoprefixer({
                   browsers: '>= 5%'
                 })
