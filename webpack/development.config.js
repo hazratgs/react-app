@@ -1,6 +1,10 @@
-const { resolve } = require('path');
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
+const { resolve } = require('path')
+const webpack = require('webpack')
+const autoprefixer = require('autoprefixer')
+const exec = require('child_process').exec
+
+const host = 'localhost'
+const port = 3000
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -65,10 +69,11 @@ module.exports = {
     contentBase: resolve(__dirname, '../build'),
     publicPath: '/',
     stats: 'errors-only',
-    port: 3000,
     compress: true,
     historyApiFallback: true,
-    host: '0.0.0.0',
-    disableHostCheck: true
+    host: host,
+    port: port,
+    disableHostCheck: true,
+    setup: () => exec(`xdg-open http://${host}:${port}`)
   }
 };
