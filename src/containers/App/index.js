@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux'
 import * as Actions from '../../actions/App'
 
 import s from './style.pcss'
-import 'normalize.css'
 
 import Header from '../Header'
 import Home from '../Home'

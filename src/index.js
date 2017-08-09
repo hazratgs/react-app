@@ -4,6 +4,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './store/configureStore'
 
+import 'whatwg-fetch'
+import 'normalize.css'
+
 import App from './containers/App'
 
 const render = (Component) => {
