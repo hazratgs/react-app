@@ -2,6 +2,7 @@ const { resolve } = require('path')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
 const exec = require('child_process').exec
+const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 
 const host = 'localhost'
 const port = 3000
@@ -63,7 +64,8 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new OpenBrowserPlugin({ url: 'http://' + host + ':'+ port })
   ],
   devServer: {
     hot: true,
@@ -74,7 +76,6 @@ module.exports = {
     historyApiFallback: true,
     host: host,
     port: port,
-    disableHostCheck: true,
-    setup: () => exec(`xdg-open http://${host}:${port}`)
+    disableHostCheck: true
   }
 };
