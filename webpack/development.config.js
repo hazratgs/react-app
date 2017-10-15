@@ -1,7 +1,6 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
-const exec = require('child_process').exec
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 
 const host = 'localhost'
