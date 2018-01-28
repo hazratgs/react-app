@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react'
-import { NavLink } from 'react-router-dom'
+import { withRouter, NavLink } from 'react-router-dom' // eslint-disable-line
 
 import s from './style.pcss'
 import Icon from '../../public/svg/icon.svg'
 
+@withRouter
 export default class Header extends PureComponent {
   render () {
     return (
