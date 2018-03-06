@@ -1,7 +1,7 @@
 {
   "presets": [
     [
-      "es2015",
+      "env",
       { "modules": false }
     ],
     "react",
@@ -10,7 +10,8 @@
   "plugins": [
     "transform-decorators-legacy",    
     "react-hot-loader/babel",
-    "transform-async-to-generator"
+    "transform-async-to-generator",
+    "transform-class-properties"
   ],
   "env": {
     "modules": false
