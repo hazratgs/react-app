@@ -1,0 +1,63 @@
+@import "../../public/css/variables.pcss";
+
+.block {
+  max-width: 80%;
+
+  .tabs {
+    display: flex;
+
+    .item {
+      margin-right: 5px;
+      border: 2px solid transparent;
+      background-color: var(--border);
+      padding: 10px 10px;
+      text-align: left;
+      position: relative;
+      cursor: pointer;
+      border-radius: 1px;
+      flex: 1;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #fff;
+        border-color: var(--active-border);
+      }
+
+      &.active {
+        background-color: var(--active-border);
+        border-color: var(--active-border);
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: 12px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        display: none;
+      }
+
+      strong {
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-family: var(--text);
+        letter-spacing: 1px;
+      }
+
+      span {
+        display: block;
+        font-size: 11px;
+        color: #666;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}
+

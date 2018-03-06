@@ -1,0 +1,91 @@
+@import "../../public/css/variables.pcss";
+
+.table {
+  margin-top: 30px;
+
+  .head {
+    border-bottom: 2px solid var(--border);
+    display: flex;
+
+    .column {
+      font-size: 12px;
+      color: #888;
+
+    }
+  }
+
+  .column {
+    flex: 1;
+    font-size: 14px;
+    font-family: var(--text);
+    padding: 10px 10px;
+    border-right: 1px solid var(--border);
+    position: relative;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: 0;
+      flex: 0.5;
+    }
+
+    &.min {
+      flex: 0 0 40px;
+    }
+
+    &.small {
+      flex: 0.6;
+    }
+  }
+
+  .row {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .side {
+    border-radius: 2px;
+    font-size: 11px;
+    color: #fff;
+    display: block;
+    text-align: center;
+    padding: 0 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 80%;
+    height: 24px;
+    line-height: 25px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-weight: 900;
+
+    &.buy {
+      background-color: #9cd18b;
+    }
+
+    &.sell {
+      background-color: #ea6868;
+    }
+  }
+
+  .loader {
+    display: flex;
+    padding: 30px 0;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-right: 10px;
+    }
+    
+    strong {
+      font-size: 14px;
+    }
+  }
+}
