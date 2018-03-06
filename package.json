@@ -1,7 +1,7 @@
 {
-  "name": "react-app-constructor",
+  "name": "react-webpack-app",
   "version": "1.0.0",
-  "description": "Каркас для разработки ReactJS приложения",
+  "description": "Webpack конфигурация для разработки React приложения",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack/webpack.config.js --env development",
@@ -11,8 +11,8 @@
   "standard": {
     "parser": "babel-eslint"
   },
-  "author": "Hazrat Gadjikerimov",
-  "license": "ISC",
+  "author": "hazratgs",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "7.2.5",
     "babel-core": "6.26.0",
