@@ -1,21 +1,11 @@
 :root {
-    --width: 870px;
+  --padding: 0 80px;
+  --color: #000;
+  --background: #111111;
 
-    /* fonts */
-    --title: 'PT Serif', 'Georgia';
-    --text: 'Roboto', 'Arial';
-
-    /* colors */
-    --border: #f5f5f5;
-    --active-border: #adffda;
-
-    --font-smooth: {
-        font-smoothing: antialiased;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-    };
-
-    --transition: {
-        transition: all 0.3s ease;
-    };
+  --width: {
+    padding: var(--padding);
+    width: 100%;
+    box-sizing: border-box;
+  }
 }

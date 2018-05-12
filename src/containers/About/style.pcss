@@ -1,0 +1,71 @@
+@import "../../public/css/variables.pcss";
+
+.about {
+  @apply --width;
+  min-height: 100vh;
+  background-color: #fff;
+  transition: background-color .3s ease;
+
+  &.black {
+    background-color: var(--background);
+
+    .wrapper {
+      h1, p {
+        color: #fff;
+      }
+    }
+  }
+
+  .wrapper {
+    padding-top: 240px;
+
+    h1 {
+      font-family: 'bandera';
+      font-size: 36px;
+      font-weight: 400;
+      max-width: 740px;
+    }
+
+    p {
+      max-width: 740px;
+      color: #fff;
+      font-size: 18px;
+      line-height: 28px;
+      min-height: 20px;
+      font-family: 'gerbera';
+      font-weight: 300;
+      max-width: 740px;
+    }
+
+    .number {
+      padding: 40px 0 15px 60px;
+      box-sizing: border-box;
+      display: flex;
+      max-width: 880px;
+      flex-wrap: wrap;
+
+      .item {
+        margin-bottom: 50px;
+        width: 205px;
+
+        strong {
+          display: block;
+          font-family: 'bandera';
+          font-weight: 400;
+          font-size: 42px;
+          line-height: 48px;
+          margin-bottom: 3px;
+          color: #fff;
+        }
+
+        span {
+          font-family: 'gerbera';
+          color: rgba(255, 255, 255, 0.6);
+          font-weight: 300;
+          font-size: 13px;
+          display: block;
+        }
+      }
+    }
+  }
+}

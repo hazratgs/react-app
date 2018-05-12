@@ -1,7 +1,71 @@
 @import "../../public/css/variables.pcss";
 
 .header {
-  .title {
-    font-family: var(--text);
+  position: absolute;
+  top: 80px;
+  @apply --width;
+
+  &.black {
+    .wrapper {
+      .logo {
+        background-color: #fff;
+      }
+
+      .nav .nav-wrapper a{
+        color: #fff;
+      }
+    } 
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .logo {
+      width: 100px;
+      height: 28px;
+      background-color: #000;
+      position: relative;
+      transition: backgound-color .3s ease;
+
+      a {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+
+    .nav {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+
+      .nav-wrapper {
+        display: flex;
+        align-items: center;
+
+        a {
+          text-decoration: none;
+          height: auto;
+          font-family: 'gerbera';
+          color: #000;
+          margin-right: 30px;
+          font-size: 17px;
+          padding: 2px 0;
+          font-weight: 300;
+          transition: opacity .3s ease;
+
+          &.active, &:hover {
+            opacity: 0.4;
+          }
+        }
+      }
+    }
   }
 }

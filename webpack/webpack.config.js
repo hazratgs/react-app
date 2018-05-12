@@ -32,10 +32,10 @@ const common = {
         use: ['babel-loader', 'eslint-loader']
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|woff|woff2|ttf|otf|eot)$/,
         loader: 'file-loader',
         options: {
-          name: 'img/[name].[ext]'
+          name: 'public/[name].[ext]'
         }
       },
       {
