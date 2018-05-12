@@ -3,6 +3,7 @@ import { withRouter, Route } from 'react-router-dom'
 import s from './style.pcss'
 
 import Header from '../../components/Header'
+import Aside from '../../components/Aside'
 import About from '../About'
 
 @withRouter
@@ -11,7 +12,8 @@ export default class App extends PureComponent {
     return (
       <div className={s.app}>
         <div className={s.content}>
-          <Header theme={this.props.theme}/>
+          <Header/>
+          <Aside/>
           <div>
             <Route exact path='/' component={About}/>
           </div>

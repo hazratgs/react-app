@@ -8,10 +8,18 @@ import s from './style.pcss'
 @withRouter
 @CSSModules(s)
 export default class About extends PureComponent {
+  state = {
+    loader: true
+  }
+
+  componentDidMount () {
+    setTimeout(() => this.setState({ loader: false }), 60)
+  }
+
   render () {
     return (
       <div styleName='about' className={s[this.props.theme]}>
-        <div styleName='wrapper'>
+        <div styleName='wrapper' className={this.state.loader && s.loader}>
           <h1>О себе</h1>
           <p>Мы делаем сайты, приложения и фирменные стили. Готовые продукты не бросаем, а предлагаем поддержку: вдруг вам понадобится сделать презентацию или добавить на сайт раздел.</p>
           <p>Наши проекты получают награды, их копируют и просят «сделать такие же». Все потому что мы вплотную работаем с клиентом: изучаем его бизнес, конкурентов, проводим встречи, постоянно находимся на связи. Со многими продолжаем дружить после окончания проекта и ходим друг к другу в гости.</p>
