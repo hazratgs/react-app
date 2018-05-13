@@ -25,7 +25,7 @@ export default class Header extends PureComponent {
           <div styleName='nav'>
             <div styleName='nav-wrapper'>
               <NavLink to='/' activeClassName={s.active}>о себе</NavLink>
-              <NavLink to='/work' activeClassName={s.active}>работы</NavLink>
+              <NavLink to='/work' activeClassName={s.active}>проекты</NavLink>
               <NavLink to='/contact' activeClassName={s.active}>контакты</NavLink>
             </div>
             <div styleName='burger' onClick={this.aside}>
