@@ -2,7 +2,7 @@ const { resolve } = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const development = require('./development.config');
 const production = require('./production.config');
 
@@ -58,6 +58,7 @@ const common = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([ { from: 'src/public/', to: './' } ]),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor']
     }),
