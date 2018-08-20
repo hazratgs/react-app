@@ -24,6 +24,9 @@ const common = {
     publicPath: '/',
     chunkFilename: '[id].[chunkhash].js'
   },
+  resolve: {
+    modules: ['node_modules', 'src']
+  },
   module: {
     rules: [
       {
