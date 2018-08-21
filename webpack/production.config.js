@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -31,38 +32,67 @@ module.exports = {
                   require('postcss-nested'),
                   require('postcss-csso'),
                   autoprefixer({
-                    browsers: '>= 5%'
+                    browsers: '>= 1%'
                   })
                 ]
               }
             }
           ]
-        }),
+        })
       },
       {
         test: /\.css/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: false,
-              importLoaders: 1
+        use: ExtractTextPlugin.extract({
+          publicPath: '../',
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true,
+                modules: false,
+                url: false
+              }
             }
-          }
-        ]
+          ]
+        })
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('css/[name].css'),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
     }),
+    new ExtractTextPlugin('css/[name].css'),
     new webpack.optimize.UglifyJsPlugin({
       comments: false
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        screw_ie8: true,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        if_return: true,
+        join_vars: true
+      },
+      output: {
+        comments: false
+      }
+    }),
+    new webpack.HashedModuleIdsPlugin(),
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+      threshold: 10240,
+      minRatio: 0.8
     })
   ]
 };

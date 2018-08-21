@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
+    "compression-webpack-plugin": "^1.1.11",
     "moment": "^2.22.2",
     "normalize.css": "7.0.0",
     "react": "16.4.2",

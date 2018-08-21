@@ -2,6 +2,7 @@ const { resolve } = require('path')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const host = 'localhost'
 const port = 3000
@@ -19,52 +20,67 @@ module.exports = {
     rules: [
       {
         test: /\.pcss$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              importLoaders: 1,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]'
+        use: ExtractTextPlugin.extract({
+          publicPath: '../',
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true,
+                modules: true,
+                camelCase: true,
+                importLoaders: 1,
+                localIdentName: '[path][name]__[local]--[hash:base64:5]'
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [
+                  require('postcss-import'),
+                  require('postcss-css-variables'),
+                  require('postcss-apply'),
+                  require('postcss-nested'),
+                  require('postcss-csso'),
+                  autoprefixer({
+                    browsers: '>= 1%'
+                  })
+                ]
+              }
             }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [
-                require('postcss-import'),
-                require('postcss-css-variables'),
-                require('postcss-apply'),
-                require('postcss-nested'),
-                require('postcss-csso'),
-                autoprefixer({
-                  browsers: '>= 5%'
-                })
-              ]
-            }
-          }
-        ]
+          ]
+        })
       },
       {
         test: /\.css/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: false,
-              importLoaders: 1
+        use: ExtractTextPlugin.extract({
+          publicPath: '../',
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true,
+                modules: false,
+                url: false
+              }
             }
-          }
-        ]
+          ]
+        })
       }
     ]
   },
   plugins: [
+    new ExtractTextPlugin('css/[name].css'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new OpenBrowserPlugin({ url: 'http://' + host + ':'+ port })
+    new OpenBrowserPlugin({ url: 'http://' + host + ':'+ port }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development')
+      }
+    })
   ],
   devServer: {
     hot: true,
