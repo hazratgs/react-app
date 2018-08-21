@@ -1,17 +1,19 @@
-const { resolve } = require('path');
-const merge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+const { resolve } = require('path')
+const merge = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const development = require('./development.config');
-const production = require('./production.config');
+
+const development = require('./development.config')
+const production = require('./production.config')
 
 const common = {
   entry: {
     app: [resolve(__dirname, '../src') + '/index.js'],
     vendor: [
       'babel-polyfill',
-      'react', 'react-dom',
+      'react',
+      'react-dom',
       'react-router-dom',
       'react-redux',
       'redux-devtools-extension',
