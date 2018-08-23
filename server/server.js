@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(
 //     forceDomain({
-//       hostname: 'www.mydomain.com',
+//       hostname: 'example.com',
 //       protocol: 'https'
 //     })
 //   )
