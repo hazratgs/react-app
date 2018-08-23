@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import Helmet from 'react-helmet'
 
 import { getFlights } from '../../actions/App'
 
@@ -49,15 +50,20 @@ export default class App extends PureComponent {
 
     return (
       <AppWrapper>
-        <Select
-          company={this.props.company}
+        <Helmet
+          title='My first ssr app'
         />
-        <ItemsWrapper>
-          {this.props.flights.length
-            ? items
-            : <Loader/>
-          }
-        </ItemsWrapper>
+        <div>
+          <Select
+            company={this.props.company}
+          />
+          <ItemsWrapper>
+            {this.props.flights.length
+              ? items
+              : <Loader />
+            }
+          </ItemsWrapper>
+        </div>
       </AppWrapper>
     )
   }

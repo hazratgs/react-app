@@ -1,32 +1,41 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { render, hydrate } from 'react-dom'
+import Loadable from 'react-loadable'
+import { Frontload } from 'react-frontload'
 import { Provider } from 'react-redux'
-import { store } from './store/configureStore'
+import { ConnectedRouter } from 'connected-react-router'
+import createStore from './store/configureStore'
 
 import 'whatwg-fetch'
 import 'normalize.css'
 
 import App from './containers/App'
 
-const render = (Component) => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <Router>
-        <div>
-          <Component/>
-        </div>
-      </Router>
-    </Provider>,
-    document.getElementById('root')
-  )
-}
+const { store, history } = createStore()
 
-render(App)
+const Application = (
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Frontload noServerRender>
+        <App />
+      </Frontload>
+    </ConnectedRouter>
+  </Provider>
+)
 
-// Hot Module Replacement
-if (module.hot) {
-  module.hot.accept('./containers/App', () => {
-    render(App)
+const root = document.querySelector('#root')
+
+if (process.env.NODE_ENV === 'production') {
+  Loadable.preloadReady().then(() => {
+    hydrate(Application, root)
   })
+} else {
+  render(Application, root)
+
+  // Hot Module Replacement
+  if (module.hot) {
+    module.hot.accept('./containers/App', () => {
+      render(Application, root)
+    })
+  }
 }
