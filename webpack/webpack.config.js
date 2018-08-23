@@ -8,7 +8,9 @@ const development = require('./development.config')
 const production = require('./production.config')
 
 const common = {
-  entry: resolve(__dirname, '../src') + '/index.js',
+  entry: {
+    app: resolve(__dirname, '../src') + '/index.js'
+  },
   output: {
     path: resolve(__dirname, '../build'),
     filename: 'js/[name].js',
