@@ -31,7 +31,7 @@ app.use(express.static(path.resolve(__dirname, '../build')))
 app.use(loader)
 
 Loadable.preloadAll().then(() => {
-  app.listen(PORT, console.log(`App listening on port ${PORT}!`))
+  app.listen(PORT, console.log(`App listening on http://localhost:${PORT}`))
 })
 
 app.on('error', error => {
