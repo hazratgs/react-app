@@ -1,7 +1,7 @@
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-const autoprefixer = require('autoprefixer');
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   module: {
@@ -66,26 +66,6 @@ module.exports = {
       }
     }),
     new ExtractTextPlugin('css/[name].css'),
-    new webpack.optimize.UglifyJsPlugin({
-      comments: false
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true
-      },
-      output: {
-        comments: false
-      }
-    }),
     new webpack.HashedModuleIdsPlugin(),
     new CompressionPlugin({
       asset: '[path].gz[query]',
@@ -95,4 +75,4 @@ module.exports = {
       minRatio: 0.8
     })
   ]
-};
+}
