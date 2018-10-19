@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { withRouter } from 'react-router-dom'
+import { hot } from 'react-hot-loader'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Helmet from 'react-helmet'
@@ -11,6 +12,7 @@ import Select from '../../components/Select'
 import Card from '../../components/Card'
 import Loader from '../../components/Loader'
 
+@hot(module)
 @withRouter
 @connect(
   state => ({
