@@ -13,21 +13,20 @@ export function getFlights () {
     })
 
     // Намеренно откладываем загрузку
-    setTimeout(() => {
-      window.fetch('/data.json')
-        .then(response => response.json())
-        .then(response => {
-          dispatch({
-            type: SUCCESS_LOAD_FLIGHTS,
-            payload: response.flights
-          })
+    setTimeout(async () => {
+      try {
+        const response = await window.fetch('/data.json')
+        const body = await response.json()
+        dispatch({
+          type: SUCCESS_LOAD_FLIGHTS,
+          payload: body.flights
         })
-        .catch(err => {
-          dispatch({
-            type: ERROR_LOAD_FLIGHTS,
-            payload: err
-          })
+      } catch (err) {
+        dispatch({
+          type: ERROR_LOAD_FLIGHTS,
+          payload: err
         })
+      }
     }, 400)
   }
 }

@@ -9,7 +9,8 @@ const production = require('./production.config')
 
 const common = {
   entry: {
-    app: resolve(__dirname, '../src') + '/index.js'
+    polyfill: 'babel-polyfill',
+    app: resolve(__dirname, '../src') + '/index.js',
   },
   output: {
     path: resolve(__dirname, '../build'),
