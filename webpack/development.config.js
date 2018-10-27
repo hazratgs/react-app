@@ -1,7 +1,6 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
-const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const host = 'localhost'
@@ -75,7 +74,6 @@ module.exports = {
     new ExtractTextPlugin('css/[name].css'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new OpenBrowserPlugin({ url: 'http://' + host + ':'+ port }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development')
@@ -87,7 +85,7 @@ module.exports = {
     contentBase: resolve(__dirname, '../build'),
     publicPath: '/',
     stats: 'errors-only',
-    compress: true,
+    compress: false,
     historyApiFallback: true,
     host: host,
     port: port,
